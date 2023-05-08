@@ -1,0 +1,4 @@
+<%= simple_form_for :product_question, url: product_questions_path, method: :get, remote: true, html: { class: "mt-6 w-full lg:mt-0 max-w-md lg:col-span-5 lg:pt-2 display-in-target-container-js", :"data-remote-target" => '#product-questions-container-js' } do |f| %>
+  <%= f.input :product_id, :as => :hidden, :input_html => { :value => product.id } %>
+  <%= f.input :search, label: false, required: false, placeholder: t("question.search.placeholder"), input_html: {class: "min-w-0 w-full min-w-0 flex-auto rounded-md border-0 bg-white/10 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-white/75 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"}, wrapper_html: {class: 'h-full'} %>
+<% end %>

@@ -1,0 +1,20 @@
+<% if product_questions.blank? %>
+  <p class="text-gray-300">
+    <% if search.blank? %>
+      <%= t(:no_question_available) %>
+    <% else %>
+      <%= t(:no_question_available_with_search) %>
+    <% end %>
+  </p>
+<% else %>
+  <% product_questions.each do |question| %>
+    <div class="mb-5">
+      <dt class="text-base font-semibold leading-7 text-white">
+         <%= "#{question.content}" %>
+      </dt>
+      <dd class="mt-2 text-base leading-7 text-gray-300">
+        <%= question.product_answer.content %>
+      </dd>
+    </div>
+  <% end %>
+<% end %>

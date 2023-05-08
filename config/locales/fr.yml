@@ -1,7 +1,7 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+fr:
   questions_and_answers: 'Questions & Answers'
   new_question: 'New question'
   back_to_questions_list: 'Back to questions list'
@@ -12,8 +12,8 @@ en:
   no_pending_questions: "There's no pending questions"
   go_to_questions: "Go to questions"
   q: 'Q'
-  no_question_available_with_search: No question matches the search criteria
-  no_question_available: No question has been asked for the moment
+  no_question_available_with_search : Aucune question ne correspond aux critères de recherche
+  no_question_available : Aucune question n'a été posée pour le moment
   question:
     content: 'Content'
     asked_by: 'Asked by'
@@ -21,11 +21,13 @@ en:
     no_answer: "There's no answer yet"
     sent: 'Question sent, we will answer it soon!'
     search:
-      placeholder: Search for a question
+      placeholder: Rechercher une question
     header:
-      text_1: Have a different question and can’t find the answer you’re looking for? Reach out to our support team by
-      text_2: sending us an email
-      text_3: and we’ll get back to you as soon as we can.
+      text_1: Vous avez une autre question et vous ne trouvez pas la réponse que vous cherchez ? Contactez notre équipe d'assistance en
+      text_2: envoyant un e-mail
+      text_3: et nous vous répondrons dès que possible.
+
   answer_email:
     subject: 'Your question has been answered'
     your_question: 'Your question:'
+

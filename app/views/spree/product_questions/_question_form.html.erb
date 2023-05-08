@@ -1,0 +1,38 @@
+<%= simple_form_for product.product_questions.new, remote: true, html: {class: "flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl display-in-target-container-on-error-js refresh-current-page-js", :"data-remote-target" => '#hs-offcanvas-right .content.h-full', "data-turbo": "false"} do |f| %>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <div class="h-0 flex-1 overflow-y-auto">
+    <!-- Header -->
+    <div class="bg-gray-50 px-4 py-6 sm:px-6">
+      <div class="flex items-start justify-between space-x-3">
+        <div class="space-y-1">
+          <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
+            <%= t(:do_you_have_any_questions) %>
+          </h2>
+          <p class="text-sm text-gray-500">
+            <%= t("question.header.text_1") %> <%= t("question.header.text_2") %>  <%= t("question.header.text_3") %>
+          </p>
+        </div>
+        <%= render partial: "spree/layouts/offcanvas_close", locals: {offcanvas: "hs-offcanvas-right"} %>
+      </div>
+    </div>
+
+    <div class="flex flex-1 flex-col justify-between">
+      <div class="divide-y divide-gray-200 px-4 sm:px-6">
+        <div class="space-y-6 pt-6 pb-5">
+          <div class="mt-4">
+            <%= f.label :content, class: "block text-sm font-medium text-gray-900"%>
+            <div class="mt-1">
+              <%= f.input :content, label: false, input_html: { rows: 10, cols: 50, class: "block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-shrink-0 justify-end px-4 py-4">
+    <button type="button" class="text-sm font-semibold leading-6 text-gray-900" data-hs-offcanvas="#hs-offcanvas-right">
+      <%= t("actions.cancel") %>
+    </button>
+    <%= f.button :submit, t(:ask_question), class: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+  </div>
+<% end %>

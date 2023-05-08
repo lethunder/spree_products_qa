@@ -1,19 +1,27 @@
 <% if @product.product_questions.answered.visible.present? %>
-  <div class="row">
-    <h4 class="product-section-title w-100 font-weight-bold"><%= t(:questions_and_answers) %></h4>
-    <% @product.product_questions.answered.visible.each_with_index do |question, index| %>
-      <div class="qna w-100">
-        <div class="question"><span class="pr-2"><%=t(:q)%></span><%= "#{question.content}" %></div>
-        <div class="answer"><%= question.product_answer.content %></div>
+  <div class="bg-indigo-600 mb-10">
+    <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+        <div class="max-w-xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:col-span-7">
+          <h2 class="inline sm:block lg:inline text-2xl font-bold leading-10 tracking-tight text-white">
+            <%= t(:questions_and_answers) %>
+          </h2>
+        </div>
+        <%= render partial: "spree/product_questions/search_form", locals: {product: @product} %>
       </div>
-    <% end %>
-  </div>
-<% end %>
-<% if spree_current_user.present? %>
-  <div class="row pt-2">
-    <h5 class="product-section-title w-100"><%= t(:do_you_have_any_questions) %></h5>
-    <div class='question_form'>
-      <%= render 'question_form' %>
+
+      <p class="mt-6 max-w-2xl text-base leading-7 text-gray-300 mb-10">
+        <%= t("question.header.text_1") %>
+        <%= link_to t("question.header.text_2"), new_product_question_path(product_id: @product.id ), class: 'font-semibold text-white hover:text-indigo-50 display-in-offcanvas-js', "data-hs-offcanvas" => "#hs-offcanvas-right", data: { turbo: "false" }, remote: true, rel: 'nofollow' %>
+        <%= t("question.header.text_3") %>
+      </p>
+      <div class="mt-20">
+        <dl id="product-questions-container-js" class="sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:gap-x-10">
+          <% product_questions = @product.product_questions.answered.visible.limit(8) %>
+          <%= render partial: "spree/product_questions/index", locals: {product_questions: product_questions} %>
+        </dl>
+      </div>
     </div>
   </div>
 <% end %>
