@@ -1,7 +1,5 @@
-require 'sidekiq'
-
-class QaMailerWorker
-  include Sidekiq::Worker
+class QaMailerJob < ApplicationJob
+  queue_as :default
 
   def perform(question_id)
     question = Spree::Question.find(question_id)

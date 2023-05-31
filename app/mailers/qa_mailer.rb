@@ -1,0 +1,2 @@
+class QaMailer < ApplicationMailer
+end

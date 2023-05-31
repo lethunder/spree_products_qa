@@ -22,8 +22,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_backend', spree_version
   s.add_dependency 'spree_extension'
 
-  s.add_dependency 'sidekiq'
+  s.add_dependency 'good_job'
 
+  s.add_development_dependency 'coveralls'
   s.add_development_dependency 'spree_dev_tools'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'rubocop-rails'
@@ -36,6 +37,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails', '~> 6.0.0'
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'pg'
   s.add_development_dependency 'pry'
 end
